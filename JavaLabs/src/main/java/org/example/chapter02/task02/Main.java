@@ -1,3 +1,7 @@
+/*
+2. Consider the nextInt method of the Scanner class. Is it an accessor or mutator? Why?
+What about the nextInt method of the Random class?
+ */
 package org.example.chapter02.task02;
 
 import java.util.Random;

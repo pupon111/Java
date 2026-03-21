@@ -1,8 +1,12 @@
+/*
+Rewrite the Cal class to use static imports for the System and LocalDate classes.
+ */
 package org.example.chapter02.task12;
+
 import java.time.LocalDate;
+
 import static java.time.LocalDate.*;
 import static java.lang.System.*;
-
 
 public class Main {
     public static void main(String[] args) {

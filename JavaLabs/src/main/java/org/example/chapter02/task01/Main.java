@@ -3,6 +3,7 @@
 Also make it print a newline at the end (but only one).
  */
 package org.example.chapter02.task01;
+
 import java.time.LocalDate;
 
 public class Main {

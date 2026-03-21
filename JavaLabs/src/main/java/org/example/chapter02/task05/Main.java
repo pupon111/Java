@@ -1,32 +1,22 @@
+/*
+Add methods translate and scale to the Point record. The translate method moves
+the point by a given amount in x- and y-direction. The scale method scales both
+coordinates by a given factor. Implement these methods so that they return new
+points with the results. For example,
+Point p = new Point(3, 4).translate(1, 3).scale(0.5);
+should set p to a point with coordinates (2, 3.5).
+ */
 package org.example.chapter02.task05;
-class Point {
-    private final double x;
-    private final double y;
-    public Point() {
-        this.x = 0;
-        this.y = 0;
-    }
-    public Point(double x, double y) {
-        this.x = x;
-        this.y = y;
-    }
-    public Point translate(double xMove, double yMove) {
-        return new Point(x + xMove, y + yMove);
-    }
-    public Point scale(double factor) {
-        return new Point(x * factor, y * factor);
-    }
-    public void printPoint() {
-        System.out.printf("X: %.1f Y: %.1f%n", x, y);
-    }
-}
+
 public class Main {
     public static void main(String[] args) {
         Point point1 = new Point();
         point1.printPoint();
-        Point point2 = new Point(1,1).translate(2,2);
+        Point point2 = new Point(1, 1).translate(2, 2);
         point2.printPoint();
-        Point point3 = new Point(3,4).translate(1,3).scale(0.5);
+        Point point3 = new Point(3, 4).translate(1, 3).scale(0.5);
         point3.printPoint();
     }
 }
+
+
