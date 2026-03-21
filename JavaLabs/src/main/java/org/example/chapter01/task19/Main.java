@@ -10,6 +10,24 @@ import java.util.Scanner;
  */
 
 public class Main {
+    public static void main(String[] args) {
+        System.out.println("Построчно введите числовые значения:");
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<ArrayList<Integer>> arr = new ArrayList<>();
+        while(scanner.hasNextLine()) {
+            String str = scanner.nextLine();
+            String trimmed = str.trim();
+            if (trimmed.isEmpty()) break;
+            String[] arrStr = trimmed.split(" +");
+            try {
+                arr.add(pars(arrStr));
+            } catch (NumberFormatException e) {
+                System.out.println("Неверный формат ввода");
+                return;
+            }
+        }
+        System.out.println(isSquare(arr) && isMagicSquare(arr));
+    }
     public static ArrayList<Integer> pars(String[] arr) {
         ArrayList<Integer> result = new ArrayList<>();
         for (String item : arr) {
@@ -40,23 +58,5 @@ public class Main {
             if (item.size() != arr.size()) return false;
         }
         return true;
-    }
-    public static void main(String[] args) {
-        System.out.println("Построчно введите числовые значения:");
-        Scanner scanner = new Scanner(System.in);
-        ArrayList<ArrayList<Integer>> arr = new ArrayList<>();
-        while(scanner.hasNextLine()) {
-            String str = scanner.nextLine();
-            String trimmed = str.trim();
-            if (trimmed.isEmpty()) break;
-            String[] arrStr = trimmed.split(" +");
-            try {
-                arr.add(pars(arrStr));
-            } catch (NumberFormatException e) {
-                System.out.println("Неверный формат ввода");
-                return;
-            }
-        }
-        System.out.println(isSquare(arr) && isMagicSquare(arr));
     }
 }

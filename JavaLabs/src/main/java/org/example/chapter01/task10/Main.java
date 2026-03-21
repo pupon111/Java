@@ -5,7 +5,7 @@ import java.util.Random;
 создавая случайное значение типа long и выводя его в системе счисления с основанием 36.
  */
 public class Main {
-    public static void main(String[] ignoredArgs) {
+    public static void main(String[] args) {
         Random random = new Random();
         System.out.println("Результат: " + Long.toString(random.nextLong(), 36));
     }

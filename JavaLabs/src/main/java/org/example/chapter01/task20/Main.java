@@ -6,6 +6,21 @@ import java.util.Scanner;
 Напишите программу, которая сохраняет треугольник Паскаля до заданного n в ArrayList<ArrayList<Integer>>.
  */
 public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите высоту треугольника паскаля (целое положительное значение): ");
+        try {
+            int height = scanner.nextInt();
+            if (height < 0) {
+                System.out.println("Высота должна быть > 0");
+                return;
+            }
+            int[][] pascalsTriangle = createPascalsTriangle(height);
+            printPascalsTriangle(pascalsTriangle);
+        } catch (InputMismatchException e) {
+            System.out.println("Неверный формат");
+        }
+    }
     private static int[][] createPascalsTriangle(int height) {
         int[][] triangle = new int[height][];
         triangle[0] = new int[]{1};
@@ -28,21 +43,6 @@ public class Main {
                 System.out.print(triangle[i][j] + " ");
             }
             System.out.println();
-        }
-    }
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите высоту треугольника паскаля (целое положительное значение): ");
-        try {
-            int height = scanner.nextInt();
-            if (height < 0) {
-                System.out.println("Высота должна быть > 0");
-                return;
-            }
-            int[][] pascalsTriangle = createPascalsTriangle(height);
-            printPascalsTriangle(pascalsTriangle);
-        } catch (InputMismatchException e) {
-            System.out.println("Неверный формат");
         }
     }
 }

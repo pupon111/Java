@@ -1,11 +1,14 @@
 package org.example.chapter02.task05;
 class Point {
-    private double x = 0;
-    private double y = 0;
-    public Point() {}
-    public Point(double otherX, double otherY) {
-        x = otherX;
-        y = otherY;
+    private final double x;
+    private final double y;
+    public Point() {
+        this.x = 0;
+        this.y = 0;
+    }
+    public Point(double x, double y) {
+        this.x = x;
+        this.y = y;
     }
     public Point translate(double xMove, double yMove) {
         return new Point(x + xMove, y + yMove);

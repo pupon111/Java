@@ -1,45 +1,18 @@
 package org.example.chapter02.task10;
-class ImutableCar {
-    final private double fuel;
-    final private double xCoordinate;
-    final private double fuelRate;
-    public ImutableCar() {
-        this.fuel = 0.0;
-        this.xCoordinate = 0.0;
-        this.fuelRate = 0.0;
-    }
-    private ImutableCar(double fuel, double xCoordinate, double fuelRate) {
-        this.fuel = fuel;
-        this.xCoordinate = xCoordinate;
-        this.fuelRate = fuelRate;
-    }
-    public ImutableCar addFuel(double fuel) {
-        if (fuel < 0) {
-            return this;
-        }
-        return new ImutableCar(this.fuel + fuel, this.xCoordinate, this.fuelRate);
-    }
-    public ImutableCar move(double km) {
-        if ()
-    }
-    public double getFuel() {
-        return this.fuel;
-    }
-    public double getXCoordinate() {
-        return this.xCoordinate;
+public class Main {
+    public static void main(String[] args) {
+        Car car = new Car(5.2);
+        car.addFuel(2);
+        car.move(5);
+        car.printInfo();
     }
 }
-class MutableCar {
-    private double fuel = 0;
-    private double xCoordinate = 0;
+class Car {
+    private double fuel = 0.0;
+    private double xCoordinate = 0.0;
     final private double fuelRate;
-    public MutableCar(double fuelRate) {
-        if (fuelRate > 0) {
-            this.fuelRate = fuelRate;
-        }
-        else {
-            this.fuelRate = 0;
-        }
+    public Car(double fuelRate) {
+        this.fuelRate = Math.max(fuelRate, 0.0);
     }
     public void addFuel(double fuel) {
         if (fuel < 0) {
@@ -47,12 +20,13 @@ class MutableCar {
         }
         this.fuel += fuel;
     }
-    public void ride(double move) {
-        if (move < 0) {
+    public void move(double km) {
+        if (km < 0) {
             return;
         }
-        this.xCoordinate += Math.min(move, fuelRate * fuel);
-        fuel = (fuelRate * move > fuel) ? 0 : fuelRate * move;
+        double move = Math.min(km, this.fuel * this.fuelRate);
+        this.xCoordinate += move;
+        this.fuel -= move / this.fuelRate;
     }
     public double getFuel() {
         return this.fuel;
@@ -60,9 +34,12 @@ class MutableCar {
     public double getXCoordinate() {
         return this.xCoordinate;
     }
-}
-public class Main {
-    public static void main(String[] args) {
-
+    public void printInfo() {
+        System.out.printf("""
+                fuelRate: %.3f;
+                fuel: %.3f;
+                xCoordinate: %.3f%n
+                """, this.fuelRate, this.fuel, this.xCoordinate);
     }
 }
+

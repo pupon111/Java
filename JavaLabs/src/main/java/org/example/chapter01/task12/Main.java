@@ -6,6 +6,13 @@ import java.util.Scanner;
 возвращает массив смещений по осям x и y. Например, для "W" должно возвращаться new int[] { -1, 0 }.
  */
 public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите направдение [N,S,E,W]: ");
+        String line = scanner.nextLine();
+        int[] arr = foo(line);
+        for (int item : arr) { System.out.println(item); }
+    }
     public static int[] foo(String str) {
         return switch (str) {
             case "N" -> new int[]{0, 1};
@@ -14,12 +21,5 @@ public class Main {
             case "E" -> new int[]{1, 0};
             default -> new int[]{0, 0};
         };
-    }
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите направдение [N,S,E,W]: ");
-        String line = scanner.nextLine();
-        int[] arr = foo(line);
-        for (int item : arr) { System.out.println(item); }
     }
 }
