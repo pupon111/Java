@@ -9,6 +9,7 @@ package org.example.chapter02.task18;
 import java.util.NoSuchElementException;
 
 class Queue {
+
     private static class Node {
         final private String data;
         private Node next;
@@ -19,6 +20,30 @@ class Queue {
         }
 
         public String toString() {
+            return data;
+        }
+    }
+
+    public class Iterator {
+        private Node current;
+        private int position;
+
+        private Iterator() {
+            this.current = head;
+            this.position = 0;
+        }
+
+        public boolean hasNext() {
+            return current != null && position < size;
+        }
+
+        public String next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException("No more elements in the queue");
+            }
+            String data = current.data;
+            current = current.next;
+            position++;
             return data;
         }
     }
@@ -67,30 +92,6 @@ class Queue {
 
     public int size() {
         return size;
-    }
-
-    public class Iterator {
-        private Node current;
-        private int position;
-
-        private Iterator() {
-            this.current = head;
-            this.position = 0;
-        }
-
-        public boolean hasNext() {
-            return current != null && position < size;
-        }
-
-        public String next() {
-            if (!hasNext()) {
-                throw new NoSuchElementException("No more elements in the queue");
-            }
-            String data = current.data;
-            current = current.next;
-            position++;
-            return data;
-        }
     }
 
     public Iterator iterator() {

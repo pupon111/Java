@@ -7,7 +7,7 @@ yields the minutes between this and the given TimeOfDay instance.
  */
 package org.example.chapter02.task09;
 
-class TimeOfDay {
+public class TimeOfDay {
     private static final int MIN_HOURS = 0;
     private static final int MAX_HOURS = 23;
     private static final int MIN_MINUTES = 0;
@@ -27,7 +27,7 @@ class TimeOfDay {
         }
     }
 
-    TimeOfDay plusMinutes(int minutes) {
+    public TimeOfDay plusMinutes(int minutes) {
         int sumMinutes = this.hours * MINUTES_IN_HOUR + this.minutes + minutes;
         int hoursCount = sumMinutes / MINUTES_IN_HOUR;
         int minutesCount = sumMinutes % MINUTES_IN_HOUR;

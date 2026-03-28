@@ -9,7 +9,7 @@ package org.example.chapter02.task11;
 import java.util.ArrayList;
 import java.util.Random;
 
-class RandomNumber {
+public class RandomNumber {
     static public int randomElement(int[] arr) {
         if (arr.length == 0) {
             return 0;

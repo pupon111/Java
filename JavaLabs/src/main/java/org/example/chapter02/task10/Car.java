@@ -7,7 +7,7 @@ Should this be an immutable class? Why or why not?
  */
 package org.example.chapter02.task10;
 
-class Car {
+public class Car {
     private double fuel = 0.0;
     private double xCoordinate = 0.0;
     final private double fuelRate;
