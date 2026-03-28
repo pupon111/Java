@@ -1,3 +1,10 @@
+/*
+Implement a class Car that models a car traveling along the x-axis, consuming gas
+as it moves. Provide methods to drive by a given number of miles, to add a given
+number of gallons to the gas tank, and to get the current distance from the origin
+and fuel level. Specify the fuel efficiency (in miles/gallons) in the constructor.
+Should this be an immutable class? Why or why not?
+ */
 package org.example.chapter02.task10;
 
 class Car {
@@ -23,14 +30,6 @@ class Car {
         double move = Math.min(km, this.fuel * this.fuelRate);
         this.xCoordinate += move;
         this.fuel -= move / this.fuelRate;
-    }
-
-    public double getFuel() {
-        return this.fuel;
-    }
-
-    public double getXCoordinate() {
-        return this.xCoordinate;
     }
 
     public void printInfo() {

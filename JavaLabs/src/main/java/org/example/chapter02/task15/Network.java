@@ -2,7 +2,7 @@
 Compile the Network class. Note that the inner class file is named
 Network$Member.class. Use the javap program to spy on the generated code. The
 command
-javap -private Classname
+javap -private Class name
 displays the methods and instance variables. Where do you see the reference to the
 enclosing class? (
  */
@@ -10,7 +10,20 @@ package org.example.chapter02.task15;
 
 import java.util.ArrayList;
 
+@SuppressWarnings("unused")
 public class Network {
+    final private ArrayList<Member> members = new ArrayList<>();
+
+    public Member enroll(String name) {
+        var newMember = new Member(name);
+        members.add(newMember);
+        return newMember;
+    }
+
+    public String toString() {
+        return members.toString();
+    }
+
     public class Member { // Member is an inner class of Network
         final private String name;
         final private ArrayList<Member> friends = new ArrayList<>();
@@ -40,17 +53,5 @@ public class Network {
             }
             return result.subSequence(0, result.length() - 2).toString();
         }
-    }
-
-    final private ArrayList<Member> members = new ArrayList<>();
-
-    public Member enroll(String name) {
-        var newMember = new Member(name);
-        members.add(newMember);
-        return newMember;
-    }
-
-    public String toString() {
-        return members.toString();
     }
 }

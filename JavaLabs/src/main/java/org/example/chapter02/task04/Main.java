@@ -6,7 +6,9 @@ contents of two Integer objects?
  */
 package org.example.chapter02.task04;
 
+@SuppressWarnings("unused")
 public class Main {
+
     private static void swapInt(int a, int b) { //none effect
         int c = a;
         a = b;
@@ -16,7 +18,4 @@ public class Main {
     //private void swapIntHolder(IntHolder ) //was deleted in new jdk version
     private static void swapInteger(Integer firstNumber, Integer secondNumber) {
     } //Integer is immutable
-
-    public static void main(String[] args) {
-    }
 }

@@ -5,11 +5,10 @@ method TimeOfDay plusMinutes(int minutes) that yields a new TimeOfDay object, th
 given number of minutes away, and a method int minutesFrom(TimeOfDay other) that
 yields the minutes between this and the given TimeOfDay instance.
  */
-
 package org.example.chapter02.task09;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] ignoredArgs) {
         TimeOfDay time1 = new TimeOfDay(1, 2);
         TimeOfDay time2 = time1.plusMinutes(3126).plusMinutes(23);
         time1.print();

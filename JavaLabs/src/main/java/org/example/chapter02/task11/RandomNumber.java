@@ -1,3 +1,9 @@
+/*
+In the RandomNumbers class, provide two static methods randomElement that get a
+random element from an array or array list of integers. (Return zero if the array or
+array list is empty.) Why couldn’t you make these methods into instance methods of
+int[] or ArrayList<Integer>?
+ */
 package org.example.chapter02.task11;
 
 import java.util.ArrayList;

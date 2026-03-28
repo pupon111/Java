@@ -1,3 +1,7 @@
+/*
+Repeat the preceding exercise, but now implement Point as a class and make
+translate and scale into mutators.
+ */
 package org.example.chapter02.task06;
 
 /**
@@ -5,15 +9,9 @@ package org.example.chapter02.task06;
  * A simple point in a 2D space.
  * A point has an x-coordinate and a y-coordinate.
  */
-class Point {
-    private double x = 0;
-    private double y = 0;
-
-    /**
-     * Creates a new point at the origin (0, 0).
-     */
-    public Point() {
-    }
+public class Point {
+    private double x;
+    private double y;
 
     /**
      * Creates a new point with the given x and y values.

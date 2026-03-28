@@ -7,7 +7,7 @@ package org.example.chapter02.task01;
 import java.time.LocalDate;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] ignoredArgs) {
         LocalDate date = LocalDate.now().withDayOfMonth(1);
         System.out.println(" Sun Mon Tue Wed Thu Fri Sat");
         int dayNumber = date.getDayOfWeek().getValue();

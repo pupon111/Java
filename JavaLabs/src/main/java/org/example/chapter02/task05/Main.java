@@ -9,7 +9,7 @@ should set p to a point with coordinates (2, 3.5).
 package org.example.chapter02.task05;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] ignoredArgs) {
         Point point1 = new Point();
         point1.printPoint();
         Point point2 = new Point(1, 1).translate(2, 2);

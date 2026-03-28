@@ -8,7 +8,7 @@ Finally, try javac -d . HelloWorld.java. Why is that better?
 package org.example.chapter02.task12;
 
 public class HelloWorld {
-    static void main(String[] args) {
+    static void main(String[] ignoredArgs) {
         System.out.println("hello world");
     }
 }

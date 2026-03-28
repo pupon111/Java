@@ -6,20 +6,6 @@ a linked list of nodes. Make Node a nested class. Should it be static or not?
 package org.example.chapter02.task17;
 
 public class Queue {
-    private static class Node {
-        final private String data;
-        private Node next;
-
-        private Node(String data) {
-            this.data = data;
-            this.next = null;
-        }
-
-        public String toString() {
-            return data;
-        }
-    }
-
     private Node head;
     private Node tail;
     private int size;
@@ -58,6 +44,20 @@ public class Queue {
 
     public int size() {
         return size;
+    }
+
+    private static class Node {
+        final private String data;
+        private Node next;
+
+        private Node(String data) {
+            this.data = data;
+            this.next = null;
+        }
+
+        public String toString() {
+            return data;
+        }
     }
 }
 

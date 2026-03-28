@@ -8,7 +8,7 @@ Should this be an immutable class? Why or why not?
 package org.example.chapter02.task10;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] ignoredArgs) {
         Car car = new Car(5.2);
         car.addFuel(2);
         car.move(5);
