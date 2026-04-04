@@ -10,6 +10,9 @@ public class Main {
         point.translate(1, 3);
         point.scale(0.5);
         point.printPoint();
+        //Point point = new Point();
+        //point.printPoint();
+        //int len = point.s.length();
     }
 }
 

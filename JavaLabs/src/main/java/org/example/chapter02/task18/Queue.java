@@ -8,13 +8,13 @@ package org.example.chapter02.task18;
 
 import java.util.NoSuchElementException;
 
-class Queue {
+public class Queue {
 
     private static class Node {
         final private String data;
         private Node next;
 
-        Node(String data) {
+        private Node(String data) {
             this.data = data;
             this.next = null;
         }
@@ -23,10 +23,10 @@ class Queue {
             return data;
         }
     }
-
+    private int position = 0;
     public class Iterator {
         private Node current;
-        private int position;
+        private int position = Queue.this.position;
 
         private Iterator() {
             this.current = head;

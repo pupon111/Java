@@ -12,7 +12,8 @@ package org.example.chapter02.task06;
 public class Point {
     private double x;
     private double y;
-
+    public String s;
+    public Integer i;
     /**
      * Creates a new point with the given x and y values.
      *
