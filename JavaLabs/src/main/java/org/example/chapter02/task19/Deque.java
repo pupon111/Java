@@ -17,6 +17,7 @@ public class Deque {
         }
         tail = node;
     }
+
     @SuppressWarnings("unused")
     public void addFirst(int data) {
         Node node = new Node(data);
