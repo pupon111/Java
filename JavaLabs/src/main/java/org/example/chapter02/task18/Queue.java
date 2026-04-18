@@ -6,8 +6,6 @@ Should Iterator be static or not?
  */
 package org.example.chapter02.task18;
 
-import java.util.NoSuchElementException;
-
 public class Queue {
 
     private static class Node {
@@ -23,10 +21,11 @@ public class Queue {
             return data;
         }
     }
-    private int position = 0;
+    //private int position = 0;
     public class Iterator {
         private Node current;
-        private int position = Queue.this.position;
+        private int position;
+        //private int position = Queue.this.position;
 
         private Iterator() {
             this.current = head;
@@ -39,7 +38,8 @@ public class Queue {
 
         public String next() {
             if (!hasNext()) {
-                throw new NoSuchElementException("No more elements in the queue");
+                System.out.println("Queue is empty");
+                return "";
             }
             String data = current.data;
             current = current.next;

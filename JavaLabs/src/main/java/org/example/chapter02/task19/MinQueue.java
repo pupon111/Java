@@ -1,6 +1,5 @@
 package org.example.chapter02.task19;
 
-import java.util.NoSuchElementException;
 
 public class MinQueue {
     private final Deque queue = new Deque();
@@ -18,7 +17,8 @@ public class MinQueue {
 
     public int pop() {
         if (queue.isEmpty()) {
-            throw new NoSuchElementException("Queue is empty");
+            System.out.println("Queue is empty");
+            return -1;
         }
 
         int removed = queue.peekFirst();
@@ -33,7 +33,8 @@ public class MinQueue {
 
     public int min() {
         if (minDeque.isEmpty()) {
-            throw new NoSuchElementException("Queue is empty");
+            System.out.println("Queue is empty");
+            return -1;
         }
         return minDeque.peekFirst();
     }

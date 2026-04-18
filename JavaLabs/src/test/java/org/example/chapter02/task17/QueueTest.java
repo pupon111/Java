@@ -10,7 +10,9 @@ class QueueTest {
     void push() {
         Queue queue = new Queue();
         String element = "First";
+
         queue.push(element);
+
         assertEquals(1, queue.size());
         assertFalse(queue.isEmpty());
     }
@@ -18,9 +20,11 @@ class QueueTest {
     @Test
     void pushMultipleElements() {
         Queue queue = new Queue();
+
         queue.push("First");
         queue.push("Second");
         queue.push("Third");
+
         assertEquals(3, queue.size());
         assertFalse(queue.isEmpty());
     }
@@ -28,6 +32,7 @@ class QueueTest {
     @Test
     void pushNullElement() {
         Queue queue = new Queue();
+        
         assertThrows(IllegalArgumentException.class, () -> queue.push(null));
         assertEquals(0, queue.size());
     }

@@ -34,7 +34,8 @@ public class Deque {
 
     public void removeLast() {
         if (tail == null) {
-            throw new NoSuchElementException("Queue is empty");
+            System.out.println("Queue is empty");
+            return;
         }
         tail = tail.prev;
 
@@ -47,7 +48,8 @@ public class Deque {
 
     public void removeFirst() {
         if (head == null) {
-            throw new NoSuchElementException("Queue is empty");
+            System.out.println("Queue is empty");
+            return;
         }
         head = head.next;
 
