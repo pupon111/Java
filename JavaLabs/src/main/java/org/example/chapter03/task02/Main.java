@@ -6,6 +6,8 @@ largest salary. Why do you need a cast?
 
 package org.example.chapter03.task02;
 
+import org.example.chapter03.task01.Measurable;
+
 public class Main {
     public static Measurable largest(Measurable[] objects) {
         if (objects.length == 0) {

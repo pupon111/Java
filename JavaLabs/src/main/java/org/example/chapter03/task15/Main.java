@@ -25,6 +25,7 @@ public class Main {
         Comparator<Employee> byName = Comparator.comparing(Employee::getName);
 
         Arrays.sort(employees, bySalary.thenComparing(byName));
+        //Arrays.sort(employees, Comparator.comparingDouble(Employee::getMeasure).thenComparing(byName));
         for (Employee employee : employees) {
             System.out.println("Name: " + employee.getName() + " salary: " + employee.getMeasure());
         }
