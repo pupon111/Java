@@ -17,9 +17,9 @@ public class Main {
             threads[i] = new Thread(tasks[i]);
             threads[i].start();
         }
-        for (Thread th : threads) {
+        for (Thread thread : threads) {
             try {
-                th.join();
+                thread.join();
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -28,8 +28,8 @@ public class Main {
 
     @SuppressWarnings("unused")
     public static void runInOrder(Runnable... tasks) {
-        for (Runnable obj : tasks) {
-            obj.run();
+        for (Runnable runnable : tasks) {
+            runnable.run();
         }
     }
 }

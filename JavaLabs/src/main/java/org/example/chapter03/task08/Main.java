@@ -18,7 +18,7 @@ public class Main {
         arr.add("E");
 
         System.out.println("Изначальный массив: " + arr);
-        Sort.luckySort(arr, String::compareTo);
+        Sorter.luckySort(arr, String::compareTo);
         System.out.println("Конечный массив: " + arr);
     }
 }
