@@ -1,9 +1,9 @@
-package org.example.chapter04.task04;
+package org.example.chapter04.task04_05;
 
-import org.example.chapter04.task01.Point;
+import org.example.chapter04.task01_02_03.Point;
 
 @SuppressWarnings("unused")
-public class Rectangle extends Shape {
+public class Rectangle extends Shape implements Cloneable {
     private final double width;
     private final double height;
 
@@ -19,7 +19,7 @@ public class Rectangle extends Shape {
     }
 
     @Override
-    public Rectangle clone() {
+    public Rectangle clone()  throws CloneNotSupportedException  {
         return (Rectangle) super.clone();
     }
 }

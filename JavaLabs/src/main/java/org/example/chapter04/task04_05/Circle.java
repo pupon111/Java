@@ -1,9 +1,9 @@
-package org.example.chapter04.task04;
+package org.example.chapter04.task04_05;
 
-import org.example.chapter04.task01.Point;
+import org.example.chapter04.task01_02_03.Point;
 
 @SuppressWarnings("unused")
-public class Circle extends Shape {
+public class Circle extends Shape implements Cloneable {
     private final double radius;
 
     public Circle(Point center, double radius) {
@@ -17,7 +17,7 @@ public class Circle extends Shape {
     }
 
     @Override
-    public Circle clone() {
+    public Circle clone()  throws CloneNotSupportedException {
         return (Circle) super.clone();
     }
 }

@@ -3,35 +3,35 @@ package org.example.chapter03.task17;
 public class RangeSumOnSegmentTree implements RangeSum {
 
     private final long[] segTree;
-    private final int n;
+    private final int normalSize;
 
     public RangeSumOnSegmentTree(int[] inputArr) {
         int originalSize = inputArr.length;
 
-        int N = 0;
-        while ((1 << N) < originalSize) {
-            N++;
+        int powerOfTwo = 0;
+        while ((1 << powerOfTwo) < originalSize) {
+            powerOfTwo++;
         }
-        this.n = 1 << N;
+        this.normalSize = 1 << powerOfTwo;
 
-        this.segTree = new long[2 * n];
+        this.segTree = new long[2 * normalSize];
 
         for (int i = 0; i < originalSize; i++) {
-            segTree[n + i] = inputArr[i];
+            segTree[normalSize + i] = inputArr[i];
         }
 
         build();
     }
 
     private void build() {
-        for (int i = n - 1; i > 0; i--) {
+        for (int i = normalSize - 1; i > 0; i--) {
             segTree[i] = segTree[i * 2] + segTree[i * 2 + 1];
         }
     }
 
     @Override
     public void add(int index, int number) {
-        int pos = index + n;
+        int pos = index + normalSize;
         segTree[pos] += number;
 
         for (pos /= 2; pos >= 1; pos /= 2) {
@@ -40,24 +40,25 @@ public class RangeSumOnSegmentTree implements RangeSum {
     }
 
     @Override
-    public long sum(int rightIndex, int leftIndex) {
+    public long sum(int leftIndex, int rightIndex) {
 
-        int l = rightIndex + n;
-        int r = leftIndex + n;
+        int leftIndexInSegmentTree = leftIndex + normalSize;
+        int rightIndexInSegmentTree = rightIndex + normalSize;
         long res = 0;
 
-        while (l <= r) {
-            if (l % 2 != 0) {
-                res += segTree[l];
-                l++;
+        while (leftIndexInSegmentTree <= rightIndexInSegmentTree) {
+            if (leftIndexInSegmentTree % 2 != 0) {
+                res += segTree[leftIndexInSegmentTree];
+                leftIndexInSegmentTree++;
             }
-            if (r % 2 == 0) {
-                res += segTree[r];
-                r--;
+            if (rightIndexInSegmentTree % 2 == 0) {
+                res += segTree[rightIndexInSegmentTree];
+                rightIndexInSegmentTree--;
             }
-            l /= 2;
-            r /= 2;
+            leftIndexInSegmentTree /= 2;
+            rightIndexInSegmentTree /= 2;
         }
         return res;
     }
 }
+//(2^31 - 1) * (2^31 - 1) = 2^62 - ...

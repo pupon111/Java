@@ -1,23 +1,22 @@
+/*
+11. Write a program that prints the message "Hello, World!" using reflection to
+find the out field in the java.lang.System class and the invoke() method to call the println() method.
+ */
+
 package org.example.chapter04.task13;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 public class Main {
-    static void main(String[] args) throws Exception {
-        Method sqrt = Math.class.getMethod("sqrt", double.class);
-        Method hex = Double.class.getMethod("toHexString", double.class);
+    public static void main() throws Exception {
+        Class<?> systemClass = Class.forName("java.lang.System");
 
-        System.out.println("Через Method:");
-        ValuesTable.printTable(sqrt, 1, 5, 1);
-        System.out.println();
-        ValuesTable.printTable(hex, 1, 5, 1);
+        Field outField = systemClass.getField("out");
+        Object out = outField.get(null);
 
-        System.out.println();
-        System.out.println("Через DoubleFunction:");
+        Method printlnMethod = out.getClass().getMethod("println", String.class);
 
-        ValuesTable.printTable(Math::sqrt, 1, 5, 1);
-        System.out.println();
-        ValuesTable.printTable(Double::toHexString, 1, 5, 1);
+        printlnMethod.invoke(out, "Hello, World");
     }
 }
-

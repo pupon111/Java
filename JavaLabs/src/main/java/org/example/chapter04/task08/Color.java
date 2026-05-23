@@ -1,4 +1,9 @@
-package org.example.chapter04.task07;
+/*
+8. Define an enumeration type for the eight combinations of primary colors BLACK, RED,
+BLUE, GREEN, CYAN, MAGENTA, YELLOW, WHITE with methods getRed, getGreen, and getBlue.
+ */
+
+package org.example.chapter04.task08;
 
 @SuppressWarnings("unused")
 public enum Color {

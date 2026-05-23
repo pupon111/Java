@@ -1,9 +1,9 @@
-package org.example.chapter04.task01;
+package org.example.chapter04.task01_02_03;
 
 import java.util.Objects;
 
 @SuppressWarnings("unused")
-public class LabelPoint extends Point {
+public class LabelPoint extends Point implements Cloneable {
     String label;
 
     public LabelPoint(double x, double y, String label) {
@@ -31,5 +31,12 @@ public class LabelPoint extends Point {
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), label);
+    }
+
+    @Override
+    public LabelPoint clone() throws CloneNotSupportedException {
+        LabelPoint cloned = (LabelPoint) super.clone();
+        cloned.label = this.label;
+        return cloned;
     }
 }

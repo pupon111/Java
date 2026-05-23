@@ -1,4 +1,9 @@
-package org.example.chapter04.task09;
+/*
+11. Write a “universal” toString method that uses reflection to yield a string with all
+instance variables of an object. Extra credit if you can handle cyclic references.
+ */
+
+package org.example.chapter04.task11;
 
 import java.lang.reflect.Field;
 
@@ -7,11 +12,11 @@ public class UniversalToString {
     public static String toString(Object obj) {
         if (obj == null) return "null";
 
-        Class<?> cl = obj.getClass();
+        Class<?> infClass = obj.getClass();
         StringBuilder result = new StringBuilder();
-        result.append(cl.getSimpleName()).append("[");
+        result.append(infClass.getSimpleName()).append("[");
 
-        Field[] fields = cl.getDeclaredFields();
+        Field[] fields = infClass.getDeclaredFields();
 
         for (int i = 0; i < fields.length; i++) {
             Field f = fields[i];

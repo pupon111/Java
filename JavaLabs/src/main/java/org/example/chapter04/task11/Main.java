@@ -1,18 +1,35 @@
 package org.example.chapter04.task11;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
+import org.example.chapter04.task01_02_03.Point;
 
 public class Main {
-    public static void main() throws Exception {
-        Class<?> systemClass = Class.forName("java.lang.System");
+    public static void main() {
+        Person p = new Person("Anna", 20, new Point(2, 3));
+        System.out.println(UniversalToString.toString(p));
+    }
+}
 
-        Field outField = systemClass.getField("out");
-        Object out = outField.get(null);
+class Person {
+    private final String name;
+    private final int age;
+    private final Point point;
 
-        Method printlnMethod = out.getClass().getMethod("println", String.class);
+    public Person(String name, int age, Point point) {
+        this.name = name;
+        this.age = age;
+        this.point = point;
+    }
 
-        printlnMethod.invoke(out, "Hello, World");
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public Point getPoint() {
+        return point;
     }
 }
 
